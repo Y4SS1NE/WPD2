@@ -1,0 +1,41 @@
+<head>
+    {{>head}}
+</head>
+<body>
+    <h1>{{title}}</h1>
+     {{#entries}}
+     <div>
+    {{Coursework Name}}
+    </div>
+     <div>
+    {{Module Name}}
+    </div>
+    <div>
+    {{Priority}}
+    </div>
+    <div>
+    {{Due Date}}
+    </div>
+    <div>
+     {{Module Level}}
+    </div>
+    <div>
+    {{Task 1}}
+    </div>
+    <div>
+    {{Task 2}}
+    </div>
+    <div>
+    {{Task 3}}
+    </div>
+    <div>
+    {{Status}}
+    </div>
+    <hr>
+    {{/entries}}
+   
+    {{^entries}}
+        No entries yet.
+    {{/entries}}
+</body>
+</html>
