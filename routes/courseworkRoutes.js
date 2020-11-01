@@ -24,4 +24,10 @@ router.use(function(err, req, res, next) {
     res.type('text/plain');
     res.send('Internal Server Error.');
 }) 
+router.use( function(req, res) {
+    res.status(404);
+    res.type('text/plain');
+
+res.send('Oops! We didn\'t find what you are looking for.');
+});
 
