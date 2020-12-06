@@ -1,0 +1,22 @@
+<% if (coursework) { %>
+    <div class="row mt-5">
+    <div class="col-sm-6 m-auto text-center">
+        <%coursework.forEach(coursework => { %>
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header" style="text-align: center;">Cousework List</div>
+            <div class="card-body">
+              <h4 class="card-title"><%=coursework.courseTitle%></h4>
+              <p class="card-text">Module: <%=coursework.module%></p>
+              <p class="card-text">Milestones: <%-coursework.milestones%></p>
+              <p class="card-text">Status: <%=coursework.status%></p>
+              <p class="card-text">Start Date: <%=moment(coursework.start).format(shortDateFormat)%></p>
+              <p class="card-text">End Date: <%=moment(coursework.end).format(shortDateFormat)%></p>
+            </div>
+          </div>
+          <a class="btn btn-secondary" href="/dashboard">Return</a>
+        <% }); %>
+    </div>
+  </div>
+  <% } else { %>
+    <p class="lead mb-3">You currently have no courseworks</p>
+<% } %>

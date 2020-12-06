@@ -1,0 +1,40 @@
+ 
+
+<% if (coursework) { %>
+    <div class="row" style="margin-top: 5%;">
+    <div class="col s12 m8">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Module</th>
+                    <th>Status</th>
+                    <th>End Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        <%coursework.forEach(coursework => { %>
+            <tr>
+                <td><a href="/coursework/<%=coursework._id%>"><%=coursework.courseTitle%></a></td>
+                <td><%=coursework.module%></td>
+                <td><%=coursework.status%></td>
+                <td><%=moment(coursework.end).format(shortDateFormat)%></td>
+                <td>
+                    <a href="/edit/<%=coursework._id%>" class="btn btn-float">
+                        <i class="fas fa-edit"></i>
+                    </a>
+    
+                    <a href="/delete/coursework/<%=coursework._id%>" class="btn btn-float">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        <% }); %>
+            </tbody>
+    </div>
+   
+  </div>
+  <% } else { %>
+    <p class="lead mb-3">You currently have no courseworks</p>
+<% } %>

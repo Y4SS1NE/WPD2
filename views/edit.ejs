@@ -1,0 +1,57 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          Edit Coursework
+        </h1>
+        <% include ./partials/messages %>
+        <form action="<%=coursework._id%>" method="POST">
+          <div class="form-group">
+            <label for="courseTitle">Course Title</label>
+            <input
+              type="courseTitle"
+              id="courseTitle"
+              name="courseTitle"
+              class="form-control"
+              placeholder="Enter Coursework Name"
+              value="<%=coursework.courseTitle%>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="module">Module</label>
+            <input
+              type="module"
+              id="module"
+              name="module"
+              class="form-control"
+              placeholder="Enter Module"
+              value="<%=coursework.module%>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="custom-select" id="status" name="status">
+              <option selected="Completed"> Completed</option>
+              <option selected="Not Completed">Not Completed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="input-field">
+                <p>Milestones:</p>
+                <textarea id="milestones" name="milestones"><%=coursework.milestones%></textarea>
+        </div>
+         </div>
+
+            <fieldset>
+                <label for="start">Start Date</label>
+                    <input class="form-control" type="date" name="start"  value="<%=coursework.start%>">
+                <label for="end_date" name="end">Completion Date</label>
+                    <input class="form-control" type="date" name="end" value="<%=coursework.end%>">
+                <br>
+                <input type="submit" value="save" class="btn btn-secondary">
+            </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  

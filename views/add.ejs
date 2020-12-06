@@ -1,0 +1,58 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          Add Coursework
+        </h1>
+        <% include ./partials/messages %>
+        <form action="/add" method="POST">
+          <div class="form-group">
+            <label for="courseTitle">Course Title</label>
+            <input
+              type="courseTitle"
+              id="courseTitle"
+              name="courseTitle"
+              class="form-control"
+              placeholder="Enter Coursework Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="module">Module</label>
+            <input
+              type="module"
+              id="module"
+              name="module"
+              class="form-control"
+              placeholder="Enter Module"
+            />
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="custom-select" id="status" name="status">
+              <option selected="Completed"> Completed</option>
+              <option selected="Not Completed">Not Completed</option>
+            </select>
+          </div>
+          <div class="form-group">
+                <div class="input-field">
+                    <p>Milestones:</p>
+                    <textarea id="milestones" name="milestones"></textarea>
+            </div>
+          </div>
+          
+
+            <fieldset>
+                <label for="start">Start Date</label>
+                    <input class="form-control" type="date" required="" name="start">
+                <label for="end_date" name="end">Completion Date</label>
+                    <input class="form-control" type="date" required="" name="end">
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Add coursework!</button>
+                <br>
+                <a class="btn btn-secondary" href="/dashboard">Cancel</a>
+            </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  
