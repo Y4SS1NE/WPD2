@@ -1,7 +1,13 @@
  
+<div style="margin-top: 5%;"><label>Show&nbsp;
+    <select class="form-control form-control-sm custom-select custom-select-sm" onchange="location = this.value;">
+    <option value="/dashboard" selected="">All Coursework</option>
+    <option value="/view-incomplete">Incomplete Coursework</option>
+    <option value="/view-complete">Complete Coursework</option>
+</select>&nbsp;</label></div>
 
 <% if (coursework) { %>
-    <div class="row" style="margin-top: 5%;">
+    <div class="row">
     <div class="col s12 m8">
         <table class="table table-hover">
             <thead>
@@ -30,11 +36,16 @@
                     </a>
                 </td>
             </tr>
+            
         <% }); %>
             </tbody>
     </div>
-   
+  
   </div>
   <% } else { %>
     <p class="lead mb-3">You currently have no courseworks</p>
 <% } %>
+
+<a class="btn btn-float" href="/dashboard" >
+    <i class="fa fa-undo fa-lg" aria-hidden="true"></i>
+</a>

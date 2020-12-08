@@ -9,7 +9,7 @@ var moment = require('moment');
 const app = express();
 var path = require ('path');
 var moment = require('moment');
-var shortDateFormat = "ddd MM-DD-YYYY @ h:mmA"; // this is just an example of storing a date format once so you can change it in one place and have it propagate
+var shortDateFormat = "YYYY-MM-DD"; // this is just an example of storing a date format once so you can change it in one place and have it propagate
 app.locals.moment = moment; // this makes moment available as a variable in every EJS page
 app.locals.shortDateFormat = shortDateFormat;
 // Passport Config
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname + './views')));
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-
+app.use(express.urlencoded({ extended: false }))
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
 

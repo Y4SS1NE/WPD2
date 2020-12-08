@@ -34,7 +34,8 @@
     "nedb": "^1.8.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

@@ -1,22 +1,44 @@
-<% if (coursework) { %>
-    <div class="row mt-5">
-    <div class="col-sm-6 m-auto text-center">
-        <%coursework.forEach(coursework => { %>
-        <div class="card text-white bg-primary mb-3">
-            <div class="card-header" style="text-align: center;">Cousework List</div>
-            <div class="card-body">
-              <h4 class="card-title"><%=coursework.courseTitle%></h4>
-              <p class="card-text">Module: <%=coursework.module%></p>
-              <p class="card-text">Milestones: <%-coursework.milestones%></p>
-              <p class="card-text">Status: <%=coursework.status%></p>
-              <p class="card-text">Start Date: <%=moment(coursework.start).format(shortDateFormat)%></p>
-              <p class="card-text">End Date: <%=moment(coursework.end).format(shortDateFormat)%></p>
+<div>
+  <% if (coursework) { %>
+      <div class="row mt-5">
+      <div class="col-sm-6 m-auto text-center">
+          <%coursework.forEach(coursework => { %>
+          <div class="card text-white bg-primary mb-3">
+              <div class="card-header" style="text-align: center;">Cousework List</div>
+              <div class="card-body">
+                <h4 class="card-title"><%=coursework.courseTitle%></h4>
+                <p class="card-text">Module: <%=coursework.module%></p>
+                <p class="card-text">Milestones: <%-coursework.milestones%></p>
+                <p class="card-text">Status: <%=coursework.status%></p>
+                <p class="card-text">Start Date: <%=moment(coursework.start).format(shortDateFormat)%></p>
+                <p class="card-text">End Date: <%=moment(coursework.end).format(shortDateFormat)%></p>
+                <div class="input-group"><input class="bg-light form-control border-0 small" type="text" id="myInput" name="search" value="localhost5000/coursework/<%=coursework._id%>">
+                  <div class="input-group-append"><input onclick="myFunction()" input class="btn btn-primary py-0" value="Share" type="submit"></div>
+                  </div>
+              </div>
             </div>
-          </div>
-          <a class="btn btn-secondary" href="/dashboard">Return</a>
-        <% }); %>
+            <a class="btn btn-secondary" href="/dashboard">Return</a>
+          <% }); %>
+      </div>
     </div>
-  </div>
-  <% } else { %>
-    <p class="lead mb-3">You currently have no courseworks</p>
-<% } %>
+    <% } else { %>
+      <p class="lead mb-3">You currently have no courseworks</p>
+  <% } %>
+  
+  <script>
+    function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("myInput");
+  
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+  
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+  }
+  </script>
+  
