@@ -8,8 +8,8 @@ How to use:
 
 - Initialise a new npm package npm init
 
-- Import all the packages: express, mustache, nedb
+- Import all the packages list in the package list
 
-- Run the app by typing: node index
+- Run the app by typing: npm start or npm run dev if you're using nodemon
 
-- check results in: localhost:3000
+- check results in: localhost:5000
