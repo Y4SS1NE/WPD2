@@ -3,10 +3,8 @@ const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const controller = require('../controllers/courseworkController');
 
-// Welcome Page
-router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
-// Dashboard
+router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 router.get('/dashboard', ensureAuthenticated,controller.landing_page);
 router.get('/add',ensureAuthenticated,controller.add_cw);
 router.post("/add", ensureAuthenticated, controller.post_new_cw);

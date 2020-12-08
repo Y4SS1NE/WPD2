@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const shortId = require('shortid')
 
 const shortUrlSchema = new mongoose.Schema({
-    coursework: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Coursework'
+        ref: 'User'
     },
   full: {
     type: String,

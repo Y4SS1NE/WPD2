@@ -6,7 +6,7 @@
         <br>
         Edit Coursework
       </h1>
-      <% include ./partials/messages %>
+      <%- include ('partials/messages'); %>
       <form action="<%=coursework._id%>" method="POST">
         <div class="form-group">
           <label for="courseTitle">Course Title</label>

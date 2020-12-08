@@ -11,8 +11,8 @@
                 <p class="card-text">Milestones: <%-coursework.milestones%></p>
                 <p class="card-text">Status: <%=coursework.status%></p>
                 <p class="card-text">Start Date: <%=moment(coursework.start).format(shortDateFormat)%></p>
-                <p class="card-text">End Date: <%=moment(coursework.end).format(shortDateFormat)%></p>
-                <div class="input-group"><input class="bg-light form-control border-0 small" type="text" id="myInput" name="search" value="localhost5000/coursework/<%=coursework._id%>">
+                <p class="card-text">Completion Date: <%=moment(coursework.end).format(shortDateFormat)%></p>
+                <div class="input-group"><input class="bg-light form-control border-0 small" type="text" id="myInput" name="search" value="localhost:5000/coursework/<%=coursework._id%>">
                   <div class="input-group-append"><input onclick="myFunction()" input class="btn btn-primary py-0" value="Share" type="submit"></div>
                   </div>
               </div>

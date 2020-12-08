@@ -95,7 +95,8 @@ exports.delete_cw = async(req, res) => {
 
 exports.view_incomplete = async (req, res) => {
     try {
-      const coursework = await Coursework.find({ status: 'Not Completed' })
+
+      const coursework = await Coursework.find( {user:req.user ,status: 'Not Completed' })
         .populate('user')
         .sort({ createdAt: 'desc' })
         .lean()
@@ -109,8 +110,8 @@ exports.view_incomplete = async (req, res) => {
     }
 }
 exports.view_complete = async (req, res) => {
-    try {
-      const coursework = await Coursework.find({ status: 'Completed' })
+    try{
+       const coursework = await Coursework.find({ user:req.user , status: 'Completed' })
         .populate('user')
         .sort({ createdAt: 'desc' })
         .lean()
@@ -138,8 +139,8 @@ exports.view_cw = async(req,res) => {
 }
 exports.get_shorturl = async(req, res) =>{
    try {
-        const shortUrls = await ShortUrl.find()
-        res.render('shorturl', { shortUrls: shortUrls })
+        const shortUrls = await ShortUrl.find({})
+        res.render('shorturl', {shortUrls: shortUrls })
    } catch (error) {
         console.error(err)
         res.render('error/500') 
@@ -158,7 +159,7 @@ exports.post_shorturl = async(req, res) =>{
 
 exports.url_redirect = async(req, res) =>{
     try {
-        const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl })
+        const shortUrl = await ShortUrl.findOne({user:req.user,short: req.params.shortUrl })
         if (shortUrl == null) return res.sendStatus(404)
             shortUrl.clicks++
             shortUrl.save()
